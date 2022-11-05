@@ -1,1 +1,70 @@
-<h1>成功啦！</h1>
+<div class="container-sm mt-3 ms-4 px-md-5">
+  <div class="row col-8 p-2">
+    {{!-- 下拉選單 --}}
+    <div class="row dropdown my-3 d-flex justify-content-center">
+      <button class="btn btn-outline-secondary w-100 dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        &nbsp;&nbsp; 類 &nbsp; 別 &nbsp;&nbsp;
+      </button>
+      <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">家居物業</a></li>
+        <li><a class="dropdown-item" href="#">交通出行</a></li>
+        <li><a class="dropdown-item" href="#">休閒娛樂</a></li>
+        <li><a class="dropdown-item" href="#">餐飲食品</a></li>
+        <li><a class="dropdown-item" href="#">其他</a></li>
+      </ul>
+    </div>
+    
+    {{!-- 總金額 --}}
+    <div class="row ">
+      <p class="row mb-0">總金額:</p>
+      <p class="text-end mt-0" style="color: #fd6f59; font-size: 80px;">9000</p>
+    </div>
+  </div>
+
+  {{!-- 支出項目 --}}
+  <div class="row mt-3">
+    <ul class="list-group list-group-flush">
+      {{!-- {{#each todos}} --}}
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-8 me-auto">
+            <h4 style="display: inline; vertical-align: middle;">
+              晚餐
+            </h4>
+          </div>
+          <div class="col-4">
+            <a class="btn btn-outline-warning mx-3" href="#">修改</a>
+            <form action="#" method="POST" style="display: inline;">
+              <button class="btn btn-outline-danger" type="submit">刪除</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-8 me-auto">
+  
+            <h4 style="display: inline; vertical-align: middle;">
+              晚餐
+            </h4>
+            <h2 style="display: inline; vertical-align: middle;">100</h2>
+          </div>
+          <div class="col-4">
+            <a class="btn btn-outline-warning mx-3" href="#">修改</a>
+            <form action="#" method="POST" style="display: inline;">
+              <button class="btn btn-outline-danger" type="submit">刪除</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      {{!-- {{/each}} --}}
+    </ul>
+  </div>
+  {{!-- 按鈕：新增支出 --}}
+  <div class="row col-8 p-2 mt-5">
+    <div class="d-grid col-6 gap-2 mx-auto">
+      <button class="btn" style="background-color: #fd6f59; color:aliceblue;" type="button">新增支出</button>
+    </div>
+  </div>
+</div>
