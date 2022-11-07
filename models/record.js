@@ -5,7 +5,7 @@ const recordSchema = new Schema({
   // 花費項目
   name: { type: String, required: true },
   // 花費日期
-  date: { type: Date, required: true },
+  date: { type: String, required: true },
   // 花費金額
   amount: { type: Number, required: true },
   // userId: { // 加入關聯設定

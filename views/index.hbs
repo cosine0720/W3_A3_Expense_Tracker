@@ -17,7 +17,7 @@
     
     {{!-- 總金額 --}}
     <div class="row blockquote">
-      <p class="row mb-0">總金額:</p>
+      <p class="row mb-0">兌現的總金額:</p>
       <p class="text-end mt-0" style="color: #eb346e; font-size: 80px;">9000</p>
     </div>
   </div>
@@ -25,7 +25,7 @@
   {{!-- 支出項目 --}}
   <div class="row mt-3">
     <ul class="list-group list-group-flush">
-      {{!-- {{#each todos}} --}}
+      {{#each records}}
       <li class="list-group-item">
         <div class="row">
           <div class="col-8 me-auto align-self-center">
@@ -36,12 +36,12 @@
             {{!-- 項目及新增日期 --}}
             <div class="col-7 d-inline-block">
               <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
-                晚餐
+                {{this.name}}
               </h4>
-              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
+              <p style="color:rgb(185, 181, 181);">{{this.date}}</p>
             </div>
             {{!-- 花費金額 --}}
-            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
+            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">{{this.amount}}</h2>
           </div>
           <div class="col-4 align-self-center">
             <a class="btn btn-outline-warning mx-3" href="#">修改</a>
@@ -51,57 +51,7 @@
           </div>
         </div>
       </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-8 me-auto align-self-center">
-            {{!-- icon --}}
-            <div class="col-2 d-inline-block">
-              <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
-            </div>
-            {{!-- 項目及新增日期 --}}
-            <div class="col-7 d-inline-block">
-              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
-                晚餐
-              </h4>
-              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
-            </div>
-            {{!-- 花費金額 --}}
-            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
-          </div>
-          <div class="col-4 align-self-center">
-            <a class="btn btn-outline-warning mx-3" href="#">修改</a>
-            <form action="#" method="POST" style="display: inline;">
-              <button class="btn btn-outline-danger" type="submit">刪除</button>
-            </form>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-8 me-auto align-self-center">
-            {{!-- icon --}}
-            <div class="col-2 d-inline-block">
-              <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
-            </div>
-            {{!-- 項目及新增日期 --}}
-            <div class="col-7 d-inline-block">
-              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
-                晚餐
-              </h4>
-              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
-            </div>
-            {{!-- 花費金額 --}}
-            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
-          </div>
-          <div class="col-4 align-self-center">
-            <a class="btn btn-outline-warning mx-3" href="#">修改</a>
-            <form action="#" method="POST" style="display: inline;">
-              <button class="btn btn-outline-danger" type="submit">刪除</button>
-            </form>
-          </div>
-        </div>
-      </li>
-      {{!-- {{/each}} --}}
+      {{/each}}
     </ul>
   </div>
   {{!-- 按鈕：新增支出 --}}
