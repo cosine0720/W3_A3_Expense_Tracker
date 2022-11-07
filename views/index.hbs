@@ -16,9 +16,9 @@
     </div>
     
     {{!-- 總金額 --}}
-    <div class="row ">
+    <div class="row blockquote">
       <p class="row mb-0">總金額:</p>
-      <p class="text-end mt-0" style="color: #fd6f59; font-size: 80px;">9000</p>
+      <p class="text-end mt-0" style="color: #eb346e; font-size: 80px;">9000</p>
     </div>
   </div>
 
@@ -28,12 +28,22 @@
       {{!-- {{#each todos}} --}}
       <li class="list-group-item">
         <div class="row">
-          <div class="col-8 me-auto">
-            <h4 style="display: inline; vertical-align: middle;">
-              晚餐
-            </h4>
+          <div class="col-8 me-auto align-self-center">
+            {{!-- icon --}}
+            <div class="col-2 d-inline-block">
+              <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
+            </div>
+            {{!-- 項目及新增日期 --}}
+            <div class="col-7 d-inline-block">
+              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
+                晚餐
+              </h4>
+              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
+            </div>
+            {{!-- 花費金額 --}}
+            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
           </div>
-          <div class="col-4">
+          <div class="col-4 align-self-center">
             <a class="btn btn-outline-warning mx-3" href="#">修改</a>
             <form action="#" method="POST" style="display: inline;">
               <button class="btn btn-outline-danger" type="submit">刪除</button>
@@ -43,14 +53,47 @@
       </li>
       <li class="list-group-item">
         <div class="row">
-          <div class="col-8 me-auto">
-  
-            <h4 style="display: inline; vertical-align: middle;">
-              晚餐
-            </h4>
-            <h2 style="display: inline; vertical-align: middle;">100</h2>
+          <div class="col-8 me-auto align-self-center">
+            {{!-- icon --}}
+            <div class="col-2 d-inline-block">
+              <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
+            </div>
+            {{!-- 項目及新增日期 --}}
+            <div class="col-7 d-inline-block">
+              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
+                晚餐
+              </h4>
+              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
+            </div>
+            {{!-- 花費金額 --}}
+            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
           </div>
-          <div class="col-4">
+          <div class="col-4 align-self-center">
+            <a class="btn btn-outline-warning mx-3" href="#">修改</a>
+            <form action="#" method="POST" style="display: inline;">
+              <button class="btn btn-outline-danger" type="submit">刪除</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-8 me-auto align-self-center">
+            {{!-- icon --}}
+            <div class="col-2 d-inline-block">
+              <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
+            </div>
+            {{!-- 項目及新增日期 --}}
+            <div class="col-7 d-inline-block">
+              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
+                晚餐
+              </h4>
+              <p style="color:rgb(185, 181, 181);">2022/11/05</p>
+            </div>
+            {{!-- 花費金額 --}}
+            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">100</h2>
+          </div>
+          <div class="col-4 align-self-center">
             <a class="btn btn-outline-warning mx-3" href="#">修改</a>
             <form action="#" method="POST" style="display: inline;">
               <button class="btn btn-outline-danger" type="submit">刪除</button>
