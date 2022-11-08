@@ -49,10 +49,13 @@
           </div>
 
           <div class="col-3 align-self-center">
+            {{!-- 編輯按鈕 --}}
             <a class="btn btn-outline-warning mx-3" href="./records/{{this._id}}/edit">編輯</a>
-            <form action="#" method="POST" style="display: inline;">
+            {{!-- 刪除按鈕 --}}
+            <form action="./records/{{this._id}}/delete" method="POST" style="display: inline;">
               <button class="btn btn-outline-danger" type="submit">刪除</button>
             </form>
+            
           </div>
         </div>
       </li>

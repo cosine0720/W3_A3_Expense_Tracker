@@ -7,9 +7,6 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const Record = require('./models/record')
 const handlebarsHelpers = require('./public/handlebars-helper')
-const record = require('./models/record')
-
-
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -75,7 +72,16 @@ app.post('/records/:id/edit', (req, res) => {
       record.amount = amount
       return record.save()
     })
-    .then(() => res.redirect(`/`))
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+// 刪除：此項支出
+app.post('/records/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .then(record => record.remove())
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
