@@ -18,7 +18,7 @@
     {{!-- 2、總金額 --}}
     <div class="row blockquote mb-0 ms-1">
       <p class="row mb-0">兌現的總金額:</p>
-      <p class="text-end mb-2 pb-2" style="line-height: 100% ; color: #eb346e; font-size: 80px;">9000</p>
+      <p class="text-end mb-2 pb-2" style="line-height: 100% ; color: #eb346e; font-size: 80px;">{{ sum }}</p>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
             <form action="./records/{{this._id}}/delete" method="POST" style="display: inline;">
               <button class="btn btn-outline-danger" type="submit">刪除</button>
             </form>
-            
+
           </div>
         </div>
       </li>
