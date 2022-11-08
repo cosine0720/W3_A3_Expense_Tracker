@@ -5,6 +5,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const Record = require('./models/record')
 const handlebarsHelpers = require('./public/handlebars-helper')
 
@@ -31,6 +32,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 //首頁：瀏覽全部支出項目
 app.get('/', (req, res) => {
@@ -68,7 +70,7 @@ app.get('/records/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/records/:id/edit', (req, res) => {
+app.put('/records/:id', (req, res) => {
   const { id } = req.params
   const { name, date, category, amount } = req.body
   return Record.findById(id)
@@ -84,7 +86,7 @@ app.post('/records/:id/edit', (req, res) => {
 })
 
 // 刪除：此項支出
-app.post('/records/:id/delete', (req, res) => {
+app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
