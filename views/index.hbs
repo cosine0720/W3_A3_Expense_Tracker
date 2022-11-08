@@ -1,12 +1,12 @@
 <div class="container-sm mt-3 ms-4 px-md-5">
-  <div class="row col-8 p-2">
-    {{!-- 下拉選單 --}}
+  <div class="row col-8 ms-2 pe-0">
+    {{!-- 1、下拉選單：分類 --}}
     <div class="row dropdown my-3 d-flex justify-content-center">
-      <button class="btn btn-outline-secondary w-100 dropdown-toggle" type="button" id="dropdownMenuButton1"
+      <button class="btn btn-outline-secondary w-100 dropdown-toggle d-flex justify-content-center" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
         &nbsp;&nbsp; 類 &nbsp; 別 &nbsp;&nbsp;
       </button>
-      <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">
+      <ul class="dropdown-menu w-80" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#">家居物業</a></li>
         <li><a class="dropdown-item" href="#">交通出行</a></li>
         <li><a class="dropdown-item" href="#">休閒娛樂</a></li>
@@ -15,35 +15,40 @@
       </ul>
     </div>
     
-    {{!-- 總金額 --}}
-    <div class="row blockquote">
+    {{!-- 2、總金額 --}}
+    <div class="row blockquote mb-0 ms-1">
       <p class="row mb-0">兌現的總金額:</p>
-      <p class="text-end mt-0" style="color: #eb346e; font-size: 80px;">9000</p>
+      <p class="text-end mb-2 pb-2" style="line-height: 100% ; color: #eb346e; font-size: 80px;">9000</p>
     </div>
   </div>
 
-  {{!-- 支出項目 --}}
-  <div class="row mt-3">
+  {{!-- 3、支出項目 --}}
+  <div class="row mt-1">
     <ul class="list-group list-group-flush">
       {{#each records}}
-      <li class="list-group-item">
+      <li class="list-group-item py-0 my-0">
         <div class="row">
-          <div class="col-8 me-auto align-self-center">
+          <div class="col-8 py-2 d-flex justify-content-center align-items-center d-inline-block border rounded">
             {{!-- icon --}}
-            <div class="col-2 d-inline-block">
+            <div class="col-2">
               <i class="fa-solid fa-utensils d-inline-block pe-3" style="font-size: 53px; color:rgb(164, 228, 246);"></i>
             </div>
             {{!-- 項目及新增日期 --}}
-            <div class="col-7 d-inline-block">
-              <h4 class="" style="font-size: 27px; color:rgb(108, 100, 100);">
+            <div class="col-5 ">
+              <h4 class="pb-0 pt-1" style="font-size: 27px; color:rgb(108, 100, 100);">
                 {{this.name}}
               </h4>
-              <p style="color:rgb(185, 181, 181);">{{this.date}}</p>
+              <p class="mb-1" style="color:rgb(185, 181, 181);">{{this.date}}</p>
             </div>
             {{!-- 花費金額 --}}
-            <h2 class="col d-inline-block align-text-bottom" style="font-size: 33px; color:rgb(165, 161, 161)">{{this.amount}}</h2>
+            <div class="col-5 ">
+              <p class="col text-end align-text-bottom" style="font-size: 30px; color:rgb(165, 161, 161)">
+                {{this.amount}}
+              </p>
+            </div>  
           </div>
-          <div class="col-4 align-self-center">
+
+          <div class="col-3 align-self-center">
             <a class="btn btn-outline-warning mx-3" href="#">修改</a>
             <form action="#" method="POST" style="display: inline;">
               <button class="btn btn-outline-danger" type="submit">刪除</button>
@@ -54,10 +59,13 @@
       {{/each}}
     </ul>
   </div>
-  {{!-- 按鈕：新增支出 --}}
-  <div class="row col-8 p-2 mt-5">
+
+  {{!-- 4、按鈕：新增支出 --}}
+  <div class="row col-8 p-2 my-5">
     <div class="d-grid col-6 gap-2 mx-auto">
-      <button class="btn" style="background-color: #fd6f59; color:aliceblue;" type="button">新增支出</button>
+      <a href="/records/new">
+        <button class="btn w-100" style="background-color: #fd6f59; color:aliceblue;" type="button">新增支出</button>
+      </a>
     </div>
   </div>
 </div>
