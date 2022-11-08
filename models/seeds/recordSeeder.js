@@ -19,7 +19,7 @@ db.once('open', () => {
   Promise.all(
     Array.from(
       { length: 3 },
-      (_, i) => Record.create({ name: `name-${i}`, date: `2022/01/01`, amount: `60` })
+      (_, i) => Record.create({ name: `帝寶${i}號別墅`, date: `2022-12-01`, category: 1, amount: 60 })
     )
   )
     .then(() => {

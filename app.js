@@ -1,13 +1,15 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-
 const Record = require('./models/record')
+const handlebarsHelpers = require('./public/handlebars-helper')
+const record = require('./models/record')
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -26,9 +28,10 @@ db.once('open', () => {
 })
 
 // 載入樣版引擎
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
-app.set('view engine', 'hbs')
+app.engine('handlebars', exphbs({ defaultLayout: 'main', helpers: handlebarsHelpers }))
+app.set('view engine', 'handlebars')
 
+app.use(express.static('public'))
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -46,13 +49,35 @@ app.get('/records/new', (req, res) => {
 })
 
 app.post('/records', (req, res) => {
-  const { name, date, amount } = req.body
-  return Record.create({ name, date, amount })     // 存入資料庫
+  const { name, date, category, amount } = req.body
+  return Record.create({ name, date, category, amount })     // 存入資料庫
     .then(() => res.redirect('/')) // 新增完成後導回首頁
     .catch(error => console.log(error))
 })
 
 // 修改：支出（時間、項目、金額）
+app.get('/records/:id/edit', (req, res) => {
+  const { id } = req.params
+  return Record.findById(id)
+    .lean()
+    .then((record) => res.render('edit', { record }))
+    .catch(error => console.log(error))
+})
+
+app.post('/records/:id/edit', (req, res) => {
+  const { id } = req.params
+  const { name, date, category, amount } = req.body
+  return Record.findById(id)
+    .then(record => {
+      record.name = name
+      record.date = date
+      record.category = category
+      record.amount = amount
+      return record.save()
+    })
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(error))
+})
 
 app.listen(PORT, () => {
   console.log(`This app is opening on http://localhost:${PORT}`)

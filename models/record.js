@@ -6,6 +6,8 @@ const recordSchema = new Schema({
   name: { type: String, required: true },
   // 花費日期
   date: { type: String, required: true },
+  // 花費類別
+  category: { type: Number, required: true },
   // 花費金額
   amount: { type: Number, required: true },
   // userId: { // 加入關聯設定
