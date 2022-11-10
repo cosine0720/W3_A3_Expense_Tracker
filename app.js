@@ -49,6 +49,24 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error)) // 錯誤處理
 })
 
+// 篩選：按「類別」顯示支出清單
+app.get('/search', (req, res) => {
+  const id = req.query.categoryId
+  Record.find()
+    .lean()
+    .then(records => {
+      const filterRecordsData = records.filter(data =>
+          data.category === Number(id)
+      )
+      let sum = 0
+      for (let i = 0; i < filterRecordsData.length; i++) {
+        sum += filterRecordsData[i].amount
+      }
+      res.render('index', { records: filterRecordsData, id, sum })
+    })
+    .catch(err => console.log(err))
+})
+
 // 新增：支出（時間、項目、金額）
 app.get('/records/new', (req, res) => {
   res.render('new')
