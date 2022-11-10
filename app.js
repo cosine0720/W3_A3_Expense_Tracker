@@ -3,27 +3,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express')
 const exphbs = require('express-handlebars')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const handlebarsHelpers = require('./public/handlebars-helper')
 const routes = require('./routes')
+require('./config/mongoose')
 
 const app = express()
 const PORT = process.env.PORT || 3000
-
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
-// 取得資料庫連線狀態
-const db = mongoose.connection
-// 連線異常
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-// 連線成功
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
 
 // 載入樣版引擎
 app.engine('handlebars', exphbs({ defaultLayout: 'main', helpers: handlebarsHelpers }))
