@@ -3,7 +3,7 @@
     {{!-- 1、下拉選單：分類 --}}
     <form action="/search/?categorySearch={{id}} " method="GET">
       <div class="row mt-3 mb-5 d-flex justify-content-center">
-        <select type="submit" class="btn btn-outline-warning text-center" id="categorySearch" 
+        <select type="submit" class="btn btn-outline-primary text-center" id="categorySearch" 
           name="categoryId" style="" 
           onchange="this.form.submit()" required />
         <option value="">篩 選</option>
@@ -39,7 +39,7 @@
               {{#ifMatch 4 this.category }}fa-utensils{{/ifMatch}}
               {{#ifMatch 5 this.category }}fa-pen{{/ifMatch}} 
               d-inline-block" 
-              style="font-size: 53px; color:rgb(164, 228, 246);"></i>
+              style="font-size: 53px; color:rgba(171, 144, 238, 0.449);"></i>
             </div>
             {{!-- 項目及新增日期 --}}
             <div class="col-5 ps-2">
@@ -75,7 +75,7 @@
   <div class="row col-8 p-2 my-5">
     <div class="d-grid col-6 gap-2 mx-auto">
       <a href="../records/new">
-        <button class="btn w-100" style="background-color: #fd6f59; color:aliceblue;" type="button">新增支出</button>
+        <button class="btn btn-secondary w-100"  type="button">新增支出</button>
       </a>
     </div>
   </div>
