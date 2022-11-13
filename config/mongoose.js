@@ -2,7 +2,11 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex: true 
+})
 
 // 取得資料庫連線狀態
 const db = mongoose.connection

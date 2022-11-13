@@ -10,12 +10,13 @@ const recordSchema = new Schema({
   category: { type: Number, required: true },
   // 花費金額
   amount: { type: Number, required: true },
-  // userId: { // 加入關聯設定
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User', // 定義參考對象是 User model
-  //   index: true,
-  //   required: true
-  // },
+  // 加入關聯設定
+  userId: { 
+    type: Schema.Types.ObjectId,
+    ref: 'User', // 定義參考對象是 User model
+    index: true,
+    required: true
+  },
   // categoryId: {
   //   type: Schema.Types.ObjectTd
   //   ref: 'Category', // 定義參考對象是 Category model

@@ -5,7 +5,8 @@ const Record = require('../../models/record')
 
 //首頁：瀏覽全部支出項目
 router.get('/', (req, res) => {
-  Record.find() // 取出 Record model 裡的所有資料
+  const userId = req.user._id
+  Record.find({ userId }) // 取出 Record model 裡屬於登入使用者的的所有資料
     .lean() // 把 Mongoose 的 Model 物件轉換成乾淨的 JavaScript 資料陣列
     .sort({ _id: 'asc' }) //根據 _id 升冪排序
     .then(records => {
@@ -20,8 +21,9 @@ router.get('/', (req, res) => {
 
 // 篩選：按「類別」顯示支出清單
 router.get('/search', (req, res) => {
+  const userId = req.user._id
   const id = req.query.categoryId
-  Record.find()
+  Record.find({ userId })
     .lean()
     .then(records => {
       const filterRecordsData = records.filter(data =>
