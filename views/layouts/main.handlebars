@@ -23,12 +23,12 @@
       <a class="navbar-brand" href="/">
         <img src="https://借錢推薦.com/asset/images/static/logo.webp" width="40" height="40" class="d-inline-block align-top"
           alt="好。吃">
-        <span style="font-size: 24.5px;">{{#if isAuthenticated}} &nbsp; {{ user.name }} 💛 {{/if}} 把 錢 錢 變 成 喜 歡 的 模 樣</span>
+        <span style="font-size: 24.5px;">{{#if isAuthenticated}} &nbsp; {{ user.name }}  {{/if}} 把錢錢變成喜歡的模樣</span>
       </a>
       {{#if isAuthenticated}}
-      <a href="/users/logout" class="btn btn-outline-light">Logout</a>
+        <a href="/users/logout" class="btn btn-outline-light">Logout</a>
       {{else}}
-      <a href="/users/login" class="btn btn-outline-light">Login</a>
+        <a href="/users/login" class="btn btn-outline-light">Login</a>
       {{/if}}
     </nav>
   </header>
