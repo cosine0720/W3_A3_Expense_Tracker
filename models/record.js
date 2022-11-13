@@ -7,7 +7,12 @@ const recordSchema = new Schema({
   // 花費日期
   date: { type: String, required: true },
   // 花費類別
-  category: { type: Number, required: true },
+  categoryId: {
+    type: Number,
+    ref: 'Category', // 定義參考對象是 Category model
+    index: true,
+    required: true
+  },
   // 花費金額
   amount: { type: Number, required: true },
   // 加入關聯設定
@@ -16,13 +21,8 @@ const recordSchema = new Schema({
     ref: 'User', // 定義參考對象是 User model
     index: true,
     required: true
-  },
-  // categoryId: {
-  //   type: Schema.Types.ObjectTd
-  //   ref: 'Category', // 定義參考對象是 Category model
-  //   index: true,
-  //   required: true
-  // }
+  }
 })
+
 // 輸出結果
 module.exports = mongoose.model('Record', recordSchema)

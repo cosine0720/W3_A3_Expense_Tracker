@@ -27,7 +27,7 @@ router.get('/search', (req, res) => {
     .lean()
     .then(records => {
       const filterRecordsData = records.filter(data =>
-        data.category === Number(id)
+        data.categoryId === Number(id)
       )
       let sum = 0
       for (let i = 0; i < filterRecordsData.length; i++) {

@@ -12,14 +12,14 @@
     <div class="mb-3">
       <label for="category" class="form-label">分類<span class="text-danger">*</span></label>
 
-      <select type="text" class="form-control" id="category" placeholder="Select" list="categoryOptions" name="category" value="{{ record.category }}"
+      <select type="text" class="form-control" id="categoryId" placeholder="Select" list="categoryOptions" name="categoryId" value="{{ record.categoryId }}"
       required />
       <option value="">Select</option>
-      <option value="1" {{#ifMatch 1 record.category }}selected{{/ifMatch}}>家居物業</option>
-      <option value="2" {{#ifMatch 2 record.category }}selected{{/ifMatch}}>交通出行</option>
-      <option value="3" {{#ifMatch 3 record.category }}selected{{/ifMatch}}>休閒娛樂</option>
-      <option value="4" {{#ifMatch 4 record.category }}selected{{/ifMatch}}>餐飲食品</option>
-      <option value="5" {{#ifMatch 5 record.category }}selected{{/ifMatch}}>其他</option>
+      <option value="1" {{#ifMatch 1 record.categoryId }}selected{{/ifMatch}}>家居物業</option>
+      <option value="2" {{#ifMatch 2 record.categoryId }}selected{{/ifMatch}}>交通出行</option>
+      <option value="3" {{#ifMatch 3 record.categoryId }}selected{{/ifMatch}}>休閒娛樂</option>
+      <option value="4" {{#ifMatch 4 record.categoryId }}selected{{/ifMatch}}>餐飲食品</option>
+      <option value="5" {{#ifMatch 5 record.categoryId }}selected{{/ifMatch}}>其他</option>
       </select>
     </div>
 
